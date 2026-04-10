@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Solicite una cotización gratuita a CIMRO para su proyecto de construcción, remodelación o topografía en Honduras." />
+  <title>CIMRO | Solicitar Cotización</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .steps {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+    .step .step-num {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: #ddd;
+      color: #888;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .step.active .step-num {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .step.active {
+      color: var(--dark);
+      font-weight: 700;
+    }
+    .step-sep {
+      width: 40px;
+      height: 2px;
+      background: #ddd;
+      margin: 0 0.5rem;
+      flex-shrink: 0;
+    }
+    @media(max-width:600px){ .step-sep{ width:20px; } }
+
+    .form-section {
+      display: none;
+    }
+    .form-section.active {
+      display: block;
+    }
+
+    .nav-btns {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      align-items: center;
+    }
+
+    .radio-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .radio-option {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0.85rem;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s;
+      font-size: 0.88rem;
+      color: var(--gray);
+    }
+    .radio-option:hover {
+      border-color: var(--gold);
+      color: var(--dark);
+    }
+    .radio-option input[type="radio"] {
+      display: none;
+    }
+    .radio-option.selected {
+      border-color: var(--gold);
+      background: #fdf8ee;
+      color: var(--dark);
+      font-weight: 700;
+    }
+    .radio-option .opt-icon {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .summary-box {
+      background: #f9f7f3;
+      border: 1px solid #e0d8c8;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .summary-box h3 {
+      font-family: var(--font-heading);
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #e8e0d0;
+      color: var(--gray);
+    }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-row span:last-child {
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .progress-bar-wrap {
+      height: 4px;
+      background: #eee;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+    .progress-bar {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <header></header>
+
+  <div class="page-banner">
+    <img class="banner-bg"
+      src="https://images.unsplash.com/photo-1590725121839-892b458a74fe?w=1400&q=70&auto=format&fit=crop"
+      alt="Ingenieros revisando planos de cotización" loading="eager" />
+    <h1>Solicitar Cotización</h1>
+    <p>Complete el formulario y reciba su propuesta en menos de 48 horas — sin costo</p>
+  </div>
+
+  <section>
+    <div class="container" style="max-width:720px;">
+
+      <!-- PASOS -->
+      <div class="steps">
+        <div class="step active" id="step-ind-1">
+          <div class="step-num">1</div>
+          <span>Tipo de proyecto</span>
+        </div>
+        <div class="step-sep"></div>
+        <div class="step" id="step-ind-2">
+          <div class="step-num">2</div>
+          <span>Detalles</span>
+        </div>
+        <div class="step-sep"></div>
+        <div class="step" id="step-ind-3">
+          <div class="step-num">3</div>
+          <span>Sus datos</span>
+        </div>
+        <div class="step-sep"></div>
+        <div class="step" id="step-ind-4">
+          <div class="step-num">4</div>
+          <span>Confirmar</span>
+        </div>
+      </div>
+
+      <!-- BARRA PROGRESO -->
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progress-bar" style="width:25%"></div>
+      </div>
+
+      <form id="form-cotizacion" novalidate>
+
+        <!-- PASO 1: Tipo -->
+        <div class="form-section active" id="step-1">
+          <h2 class="section-title" style="text-align:left; font-size:1.35rem;">¿Qué tipo de proyecto necesita?</h2>
+          <div class="gold-line" style="margin-left:0;"></div>
+          <div class="radio-group">
+            <label class="radio-option" onclick="selectOpt(this,'tipo')">
+              <input type="radio" name="tipo" value="vivienda" />
+              <span class="opt-icon">🏠</span>
+              Construcción de vivienda
+            </label>
+            <label class="radio-option" onclick="selectOpt(this,'tipo')">
+              <input type="radio" name="tipo" value="comercial" />
+              <span class="opt-icon">🏢</span>
+              Proyecto comercial
+            </label>
+            <label class="radio-option" onclick="selectOpt(this,'tipo')">
+              <input type="radio" name="tipo" value="remodelacion" />
+              <span class="opt-icon">🔨</span>
+              Remodelación
+            </label>
+            <label class="radio-option" onclick="selectOpt(this,'tipo')">
+              <input type="radio" name="tipo" value="topografia" />
+              <span class="opt-icon">📐</span>
+              Topografía / Catastro
+            </label>
+            <label class="radio-option" onclick="selectOpt(this,'tipo')">
+              <input type="radio" name="tipo" value="supervision" />
+              <span class="opt-icon">📋</span>
+              Supervisión de obra
+            </label>
+            <label class="radio-option" onclick="selectOpt(this,'tipo')">
+              <input type="radio" name="tipo" value="cancha" />
+              <span class="opt-icon">⚽</span>
+              Cancha deportiva
+            </label>
+            <label class="radio-option" onclick="selectOpt(this,'tipo')">
+              <input type="radio" name="tipo" value="mantenimiento" />
+              <span class="opt-icon">🌿</span>
+              Mantenimiento de cancha
+            </label>
+            <label class="radio-option" onclick="selectOpt(this,'tipo')">
+              <input type="radio" name="tipo" value="otro" />
+              <span class="opt-icon">💡</span>
+              Otro servicio
+            </label>
+          </div>
+          <div class="nav-btns">
+            <button type="button" class="btn btn-gold" onclick="nextStep(2)">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- PASO 2: Detalles -->
+        <div class="form-section" id="step-2">
+          <h2 class="section-title" style="text-align:left; font-size:1.35rem;">Cuéntenos sobre su proyecto</h2>
+          <div class="gold-line" style="margin-left:0;"></div>
+
+          <div class="form-group">
+            <label for="ubicacion">Municipio / Zona del proyecto</label>
+            <input type="text" id="ubicacion" name="ubicacion" placeholder="Ej: Tatumbla, Tegucigalpa..." required />
+            <span class="error-msg" id="ubicacion-error">Este campo es requerido.</span>
+          </div>
+          <div class="form-group">
+            <label for="area">Área aproximada (m²) — si aplica</label>
+            <input type="number" id="area" name="area" placeholder="Ej: 120" min="1" />
+          </div>
+          <div class="form-group">
+            <label for="presupuesto">Rango de presupuesto estimado</label>
+            <select id="presupuesto" name="presupuesto" required>
+              <option value="">-- Seleccione un rango --</option>
+              <option value="menos50k">Menos de L. 50,000</option>
+              <option value="50k-150k">L. 50,000 – 150,000</option>
+              <option value="150k-500k">L. 150,000 – 500,000</option>
+              <option value="500k-1m">L. 500,000 – 1,000,000</option>
+              <option value="mas1m">Más de L. 1,000,000</option>
+              <option value="nodefinido">Aún no definido</option>
+            </select>
+            <span class="error-msg" id="presupuesto-error">Seleccione una opción.</span>
+          </div>
+          <div class="form-group">
+            <label for="plazo">Plazo deseado de inicio</label>
+            <select id="plazo" name="plazo">
+              <option value="">-- Seleccione --</option>
+              <option value="inmediato">Inmediato (menos de 1 mes)</option>
+              <option value="1-3meses">1 a 3 meses</option>
+              <option value="3-6meses">3 a 6 meses</option>
+              <option value="masde6">Más de 6 meses</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripción del proyecto</label>
+            <textarea id="descripcion" name="descripcion" rows="4" placeholder="Describa brevemente lo que necesita. Cuanta más información mejor." required></textarea>
+            <span class="error-msg" id="descripcion-error">Por favor describa su proyecto.</span>
+          </div>
+          <div class="nav-btns">
+            <button type="button" class="btn btn-outline" onclick="nextStep(1)">← Atrás</button>
+            <button type="button" class="btn btn-gold" onclick="nextStep(3)">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- PASO 3: Datos de contacto -->
+        <div class="form-section" id="step-3">
+          <h2 class="section-title" style="text-align:left; font-size:1.35rem;">Sus datos de contacto</h2>
+          <div class="gold-line" style="margin-left:0;"></div>
+
+          <div class="form-group">
+            <label for="cot-nombre">Nombre completo</label>
+            <input type="text" id="cot-nombre" name="cot-nombre" placeholder="Su nombre completo" required />
+            <span class="error-msg" id="cot-nombre-error">Este campo es requerido.</span>
+          </div>
+          <div class="form-group">
+            <label for="cot-telefono">Teléfono</label>
+            <input type="tel" id="cot-telefono" name="cot-telefono" placeholder="+504 0000-0000" required />
+            <span class="error-msg" id="cot-telefono-error">Este campo es requerido.</span>
+          </div>
+          <div class="form-group">
+            <label for="cot-email">Correo electrónico</label>
+            <input type="email" id="cot-email" name="cot-email" placeholder="correo@ejemplo.com" />
+          </div>
+          <div class="form-group">
+            <label for="cot-contacto">Forma de contacto preferida</label>
+            <select id="cot-contacto" name="cot-contacto">
+              <option value="whatsapp">WhatsApp</option>
+              <option value="llamada">Llamada telefónica</option>
+              <option value="correo">Correo electrónico</option>
+              <option value="visita">Visita en sitio</option>
+            </select>
+          </div>
+          <div class="nav-btns">
+            <button type="button" class="btn btn-outline" onclick="nextStep(2)">← Atrás</button>
+            <button type="button" class="btn btn-gold" onclick="nextStep(4)">Revisar solicitud →</button>
+          </div>
+        </div>
+
+        <!-- PASO 4: Resumen -->
+        <div class="form-section" id="step-4">
+          <h2 class="section-title" style="text-align:left; font-size:1.35rem;">Revise su solicitud</h2>
+          <div class="gold-line" style="margin-left:0;"></div>
+
+          <div class="summary-box">
+            <h3>📋 Resumen de la cotización</h3>
+            <div class="summary-row"><span>Tipo de proyecto</span><span id="sum-tipo">—</span></div>
+            <div class="summary-row"><span>Ubicación</span><span id="sum-ubic">—</span></div>
+            <div class="summary-row"><span>Área</span><span id="sum-area">—</span></div>
+            <div class="summary-row"><span>Presupuesto estimado</span><span id="sum-pres">—</span></div>
+            <div class="summary-row"><span>Plazo de inicio</span><span id="sum-plazo">—</span></div>
+            <div class="summary-row"><span>Solicitante</span><span id="sum-nombre">—</span></div>
+            <div class="summary-row"><span>Teléfono</span><span id="sum-tel">—</span></div>
+            <div class="summary-row"><span>Contacto preferido</span><span id="sum-cont">—</span></div>
+          </div>
+
+          <p style="color:var(--gray); font-size:0.88rem; margin-bottom:1.5rem;">Al enviar, nuestro equipo revisará su solicitud y le contactará en un máximo de 48 horas hábiles con una propuesta personalizada sin costo.</p>
+
+          <div class="nav-btns">
+            <button type="button" class="btn btn-outline" onclick="nextStep(3)">← Editar</button>
+            <button type="submit" class="btn btn-gold">✔ Enviar Solicitud</button>
+          </div>
+          <div class="success-msg" style="margin-top:1.5rem;">✅ ¡Solicitud enviada! Nos pondremos en contacto en menos de 48 horas. Gracias por confiar en CIMRO.</div>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- INFO STRIP -->
+  <section style="background:var(--white); padding:3rem 1.5rem;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; text-align:center;">
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">🕐</div>
+          <strong style="display:block; font-family:var(--font-heading);">Respuesta en 48h</strong>
+          <p style="color:var(--gray); font-size:0.85rem;">Le contactamos con su propuesta en tiempo record.</p>
+        </div>
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">💰</div>
+          <strong style="display:block; font-family:var(--font-heading);">Sin costo</strong>
+          <p style="color:var(--gray); font-size:0.85rem;">La cotización es completamente gratuita y sin compromiso.</p>
+        </div>
+        <div>
+          <div style="font-size:2rem; margin-bottom:0.5rem;">📐</div>
+          <strong style="display:block; font-family:var(--font-heading);">Visita en sitio</strong>
+          <p style="color:var(--gray); font-size:0.85rem;">Si es necesario, coordinamos una visita técnica al terreno.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer></footer>
+
+  <script src="components.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    var currentStep = 1;
+    var selectedTipo = '';
+
+    function selectOpt(el, group) {
+      document.querySelectorAll('.radio-option').forEach(function(o){ o.classList.remove('selected'); });
+      el.classList.add('selected');
+      selectedTipo = el.querySelector('input').value;
+    }
+
+    function nextStep(n) {
+      // Validaciones mínimas
+      if (n === 2 && !selectedTipo) {
+        alert('Por favor seleccione un tipo de proyecto.');
+        return;
+      }
+      if (n === 3) {
+        var ubic = document.getElementById('ubicacion');
+        var pres = document.getElementById('presupuesto');
+        var desc = document.getElementById('descripcion');
+        var ok = true;
+        if (!ubic.value.trim()) { document.getElementById('ubicacion-error').style.display='block'; ok=false; } else { document.getElementById('ubicacion-error').style.display='none'; }
+        if (!pres.value) { document.getElementById('presupuesto-error').style.display='block'; ok=false; } else { document.getElementById('presupuesto-error').style.display='none'; }
+        if (!desc.value.trim()) { document.getElementById('descripcion-error').style.display='block'; ok=false; } else { document.getElementById('descripcion-error').style.display='none'; }
+        if (!ok) return;
+      }
+      if (n === 4) {
+        var nombre = document.getElementById('cot-nombre');
+        var tel = document.getElementById('cot-telefono');
+        var ok = true;
+        if (!nombre.value.trim()) { document.getElementById('cot-nombre-error').style.display='block'; ok=false; } else { document.getElementById('cot-nombre-error').style.display='none'; }
+        if (!tel.value.trim()) { document.getElementById('cot-telefono-error').style.display='block'; ok=false; } else { document.getElementById('cot-telefono-error').style.display='none'; }
+        if (!ok) return;
+        // Llenar resumen
+        var tipoLabels = {vivienda:'Construcción de vivienda',comercial:'Proyecto comercial',remodelacion:'Remodelación',topografia:'Topografía / Catastro',supervision:'Supervisión de obra',cancha:'Cancha deportiva',mantenimiento:'Mantenimiento de cancha',otro:'Otro servicio'};
+        document.getElementById('sum-tipo').textContent = tipoLabels[selectedTipo] || '—';
+        document.getElementById('sum-ubic').textContent = document.getElementById('ubicacion').value || '—';
+        var area = document.getElementById('area').value;
+        document.getElementById('sum-area').textContent = area ? area + ' m²' : 'No especificada';
+        document.getElementById('sum-pres').textContent = document.getElementById('presupuesto').options[document.getElementById('presupuesto').selectedIndex].text || '—';
+        var plazoEl = document.getElementById('plazo');
+        document.getElementById('sum-plazo').textContent = plazoEl.value ? plazoEl.options[plazoEl.selectedIndex].text : 'No definido';
+        document.getElementById('sum-nombre').textContent = nombre.value;
+        document.getElementById('sum-tel').textContent = tel.value;
+        var contEl = document.getElementById('cot-contacto');
+        document.getElementById('sum-cont').textContent = contEl.options[contEl.selectedIndex].text;
+      }
+
+      document.getElementById('step-' + currentStep).classList.remove('active');
+      document.getElementById('step-ind-' + currentStep).classList.remove('active');
+      currentStep = n;
+      document.getElementById('step-' + currentStep).classList.add('active');
+      document.getElementById('step-ind-' + currentStep).classList.add('active');
+      document.getElementById('progress-bar').style.width = (currentStep * 25) + '%';
+      window.scrollTo({ top: 300, behavior: 'smooth' });
+    }
+
+    document.getElementById('form-cotizacion').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.querySelector('[type="submit"]').style.display = 'none';
+      this.querySelector('.success-msg').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Materiales y proveedores de CIMRO - Usamos materiales certificados de los mejores proveedores de Honduras para garantizar calidad en cada obra." />
+  <title>CIMRO | Materiales y Proveedores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .mat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mat-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .mat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    }
+    .mat-card .mat-img {
+      height: 180px;
+      overflow: hidden;
+    }
+    .mat-card .mat-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .mat-card:hover .mat-img img {
+      transform: scale(1.06);
+    }
+    .mat-card .mat-body {
+      padding: 1.25rem;
+    }
+    .mat-card .mat-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      color: var(--dark);
+    }
+    .mat-card .mat-body p {
+      color: var(--gray);
+      font-size: 0.87rem;
+      line-height: 1.6;
+    }
+    .mat-tag {
+      display: inline-block;
+      background: #f0ede5;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 0.18rem 0.55rem;
+      border-radius: 3px;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Proveedores */
+    .prov-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .prov-card {
+      background: var(--white);
+      border: 1px solid #e5e0d5;
+      border-radius: 8px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .prov-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 16px rgba(201,168,76,0.15);
+    }
+    .prov-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .prov-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+    .prov-card p {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+    .prov-card .prov-badge {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.72rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* Tabla de especificaciones */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .spec-table th {
+      background: var(--dark);
+      color: var(--gold);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .spec-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid #eee;
+      color: var(--gray);
+    }
+    .spec-table tr:nth-child(even) td {
+      background: #fafaf8;
+    }
+    .spec-table td:first-child {
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .check { color: var(--gold); font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <header></header>
+
+  <div class="page-banner">
+    <img class="banner-bg"
+      src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=70&auto=format&fit=crop"
+      alt="Materiales de construcción en obra" loading="eager" />
+    <h1>Materiales y Proveedores</h1>
+    <p>Solo trabajamos con materiales certificados de proveedores de confianza</p>
+  </div>
+
+  <!-- FILOSOFÍA -->
+  <section>
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2 class="section-title" style="text-align:left;">Nuestra Filosofía de Materiales</h2>
+          <div class="gold-line" style="margin-left:0;"></div>
+          <p style="color:var(--gray); margin-bottom:1rem;">En CIMRO seleccionamos cada material con criterios técnicos estrictos. No usamos materiales de segunda calidad ni sustitutos que comprometan la durabilidad de su obra.</p>
+          <p style="color:var(--gray); margin-bottom:1rem;">Trabajamos con proveedores nacionales e internacionales que cumplen normas técnicas hondureñas (SOPTRAVI/INVEPRO) y estándares ASTM para estructuras.</p>
+          <p style="color:var(--gray);">Cada lote de material que ingresa a la obra es inspeccionado por nuestro equipo antes de su uso. Esto forma parte de nuestro protocolo de calidad.</p>
+        </div>
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=75&auto=format&fit=crop" alt="Inspección de materiales de construcción en obra" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIALES PRINCIPALES -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <h2 class="section-title">Materiales que Utilizamos</h2>
+      <div class="gold-line"></div>
+      <p class="section-subtitle">Selección basada en durabilidad, norma técnica y disponibilidad local.</p>
+
+      <div class="mat-grid">
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=600&q=70&auto=format&fit=crop" alt="Cemento Portland para construcción" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Estructura</span>
+            <h3>Cemento Portland Tipo I y II</h3>
+            <p>Utilizamos cemento certificado bajo norma ASTM C-150. Resistencia mínima de 3,000 PSI a los 28 días en todas nuestras mezclas estructurales.</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=70&auto=format&fit=crop" alt="Hierro corrugado para refuerzo estructural" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Estructura</span>
+            <h3>Hierro Corrugado Grado 40 y 60</h3>
+            <p>Varillas de acero corrugado certificadas bajo norma ASTM A-615 para refuerzo de columnas, vigas, losas y cimientos.</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=70&auto=format&fit=crop" alt="Bloques de concreto para paredes" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Mampostería</span>
+            <h3>Bloque de Concreto</h3>
+            <p>Bloques de 15 × 20 × 40 cm con resistencia a compresión mínima de 55 kg/cm², producidos por proveedores locales certificados.</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=70&auto=format&fit=crop" alt="Cubierta de lámina troquelada para techos" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Cubierta</span>
+            <h3>Lámina Troquelada Prepintada</h3>
+            <p>Lámina galvanizada calibre 26 y 28 con recubrimiento prepintado. Garantía de fabricante contra corrosión mínima de 10 años.</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=70&auto=format&fit=crop" alt="Porcelanato y cerámica para pisos" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Acabados</span>
+            <h3>Pisos de Porcelanato y Cerámica</h3>
+            <p>Trabajamos con marcas nacionales e importadas. Resistencia al desgaste PEI-3 o superior para áreas de alto tráfico.</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=600&q=70&auto=format&fit=crop" alt="Ventanas y puertas de aluminio" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Carpintería</span>
+            <h3>Aluminio y Vidrio Templado</h3>
+            <p>Marcos de aluminio anodizado serie 100 con vidrio de 6 mm. Para fachadas comerciales utilizamos vidrio templado de 10 mm.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLA DE ESPECIFICACIONES -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Especificaciones Técnicas de Referencia</h2>
+      <div class="gold-line"></div>
+      <div style="overflow-x:auto;">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Norma</th>
+              <th>Especificación mínima</th>
+              <th>Aplica para</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cemento Portland</td>
+              <td>ASTM C-150</td>
+              <td>f'c = 3,000 PSI a 28 días</td>
+              <td>Columnas, vigas, losas</td>
+            </tr>
+            <tr>
+              <td>Hierro corrugado</td>
+              <td>ASTM A-615</td>
+              <td>Grado 40 mín. (fy = 40,000 PSI)</td>
+              <td>Refuerzo estructural</td>
+            </tr>
+            <tr>
+              <td>Bloque de concreto</td>
+              <td>ASTM C-90</td>
+              <td>55 kg/cm² mín.</td>
+              <td>Paredes internas y externas</td>
+            </tr>
+            <tr>
+              <td>Lámina galvanizada</td>
+              <td>ASTM A-653</td>
+              <td>Calibre 26, G-90</td>
+              <td>Cubiertas de techo</td>
+            </tr>
+            <tr>
+              <td>Tubo PVC</td>
+              <td>ASTM D-1785</td>
+              <td>SDR-17 para agua potable</td>
+              <td>Instalaciones hidráulicas</td>
+            </tr>
+            <tr>
+              <td>Cable eléctrico</td>
+              <td>NEC / NFPA-70</td>
+              <td>THHN calibre según carga</td>
+              <td>Instalaciones eléctricas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVEEDORES -->
+  <section style="background: var(--white);">
+    <div class="container">
+      <h2 class="section-title">Nuestros Proveedores</h2>
+      <div class="gold-line"></div>
+      <p class="section-subtitle">Alianzas con empresas de confianza que garantizan disponibilidad y calidad constante.</p>
+
+      <div class="prov-grid">
+        <div class="prov-card">
+          <div class="prov-icon">🏭</div>
+          <h4>Cementos del Norte</h4>
+          <p>Proveedor principal de cemento Portland Tipo I y II para todas nuestras obras.</p>
+          <span class="prov-badge">Proveedor principal</span>
+        </div>
+        <div class="prov-card">
+          <div class="prov-icon">🔩</div>
+          <h4>Aceros de Honduras</h4>
+          <p>Suministro de hierro corrugado y perfiles estructurales certificados bajo norma ASTM.</p>
+          <span class="prov-badge">Proveedor certificado</span>
+        </div>
+        <div class="prov-card">
+          <div class="prov-icon">🏗️</div>
+          <h4>Bloques Tatumbla</h4>
+          <p>Fabricante local de bloques y adoquines de concreto con control de calidad propio.</p>
+          <span class="prov-badge">Proveedor local</span>
+        </div>
+        <div class="prov-card">
+          <div class="prov-icon">🪟</div>
+          <h4>Aluminios del Caribe</h4>
+          <p>Fabricación de marcos de aluminio, ventanas, puertas y fachadas de vidrio templado.</p>
+          <span class="prov-badge">Carpintería metálica</span>
+        </div>
+        <div class="prov-card">
+          <div class="prov-icon">🎨</div>
+          <h4>Pinturas SUR</h4>
+          <p>Pinturas epóxicas, vinílicas y de tráfico. Proveedor de acabados para interiores y exteriores.</p>
+          <span class="prov-badge">Acabados</span>
+        </div>
+        <div class="prov-card">
+          <div class="prov-icon">⚡</div>
+          <h4>Eléctricos Morazán</h4>
+          <p>Cable THHN, tableros, breakers y materiales eléctricos certificados para instalaciones residenciales y comerciales.</p>
+          <span class="prov-badge">Instalaciones</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MATERIALES CANCHAS DEPORTIVAS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Materiales para Canchas Deportivas</h2>
+      <div class="gold-line"></div>
+      <p class="section-subtitle">Insumos especializados bajo estándares FIFA, CONMEBOL y USGA para campos profesionales.</p>
+
+      <div class="mat-grid">
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=70&auto=format&fit=crop" alt="Grama Bermuda Ibiza para canchas de fútbol" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Grama Natural</span>
+            <h3>Bermuda Ibiza</h3>
+            <p>Especie de grama natural ideal para climas cálidos. Alta resistencia al tráfico y rápida recuperación post-partido. Utilizada en los estadios Rubén Guifarro, Fausto Flores, Humberto Micheletti y Roberto Darío Cuevas.</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1459865264687-595d652de67e?w=600&q=70&auto=format&fit=crop" alt="Grama híbrida VERTIX campo de fútbol profesional" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Grama Híbrida</span>
+            <h3>Grama Híbrida VERTIX</h3>
+            <p>Sistema híbrido compuesto por 95% de grama natural reforzada con fibra sintética cosida. Máxima durabilidad, estabilidad y apariencia profesional. Utilizada en proyectos CONMEBOL y VIDENA (Lima, Perú).</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=70&auto=format&fit=crop" alt="Arena USGA para base de canchas deportivas" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Base USGA</span>
+            <h3>Arena USGA</h3>
+            <p>Arena de granulometría específica según estándar United States Golf Association. Garantiza drenaje óptimo, evita compactación y provee la base ideal para el desarrollo de la grama. Colocada en capa de 25 cm con nivelación láser.</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=70&auto=format&fit=crop" alt="Sistema de riego automatizado para canchas de fútbol" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Riego</span>
+            <h3>Sistema de Riego Automatizado</h3>
+            <p>Equipos de riego de cobertura total con programación automática. Aspersores retráctiles de largo alcance, controladores electrónicos y sensores de humedad. Instalados en todos nuestros proyectos de estadios.</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c643e7f0b?w=600&q=70&auto=format&fit=crop" alt="Sistema de drenaje francés para canchas deportivas" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Drenaje</span>
+            <h3>Drenaje Francés y Pluvial</h3>
+            <p>Sistemas de drenaje subterráneo tipo francés para evacuación eficiente del agua pluvial. Tuberías perforadas, geotextil y grava de granulometría controlada. Esencial para canchas en zonas con alta precipitación.</p>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-img">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=70&auto=format&fit=crop" alt="Fertilizantes y productos fitosanitarios para grama" loading="lazy" />
+          </div>
+          <div class="mat-body">
+            <span class="mat-tag">Mantenimiento</span>
+            <h3>Fertilizantes y Fitosanitarios</h3>
+            <p>Productos certificados para la nutrición, control de plagas y enfermedades en grama deportiva. Programas de fertilización adaptados a cada especie y temporada para asegurar condiciones óptimas de juego.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-img-section">
+    <img class="cta-bg"
+      src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400&q=70&auto=format&fit=crop"
+      alt="Construcción con materiales de calidad CIMRO" loading="lazy" />
+    <h2 style="font-family:var(--font-heading);font-size:2rem;color:var(--gold);margin-bottom:1rem;">¿Quiere saber qué materiales usaríamos en su obra?</h2>
+    <p style="color:#ddd;max-width:520px;margin:0 auto 2rem;">Solicite una cotización y le detallamos las especificaciones técnicas de su proyecto.</p>
+    <a href="cotizacion.html" class="btn btn-gold">Solicitar Cotización Gratis</a>
+  </div>
+
+  <footer></footer>
+
+  <script src="components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galería de proyectos CIMRO - Construcciones, remodelaciones y obras realizadas en Honduras." />
+  <title>CIMRO | Galería</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      background: var(--dark2);
+      border-radius: 10px;
+      overflow: hidden;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+    }
+    .lightbox-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .lightbox-info {
+      padding: 1.25rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    .lightbox-title { color: var(--gold); font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.4rem; }
+    .lightbox-desc { color: #ccc; font-size: 0.88rem; }
+    .lightbox-close {
+      position: absolute;
+      top: 0.75rem; right: 1rem;
+      font-size: 1.5rem; cursor: pointer; color: #fff;
+      background: rgba(0,0,0,0.5); border: none;
+      border-radius: 50%; width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+    }
+    .lightbox-close:hover { background: var(--gold); color: var(--dark); }
+
+    .filter-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem; }
+    .filter-btn {
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--gold);
+      color: var(--dark);
+    }
+  </style>
+</head>
+<body>
+
+  <header></header>
+
+  <div class="page-banner">
+    <img class="banner-bg" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1400&q=70&auto=format&fit=crop" alt="Edificio moderno terminado" loading="eager" />
+    <h1>Galería de Proyectos</h1>
+    <p>Evidencia de nuestro trabajo y compromiso con la calidad</p>
+  </div>
+
+  <section>
+    <div class="container">
+
+      <div class="filter-btns">
+        <button class="filter-btn active" onclick="filterGallery('all', this)">Todos</button>
+        <button class="filter-btn" onclick="filterGallery('deportivo', this)">⚽ Canchas Deportivas</button>
+        <button class="filter-btn" onclick="filterGallery('civil', this)">🏗️ Obra Civil</button>
+        <button class="filter-btn" onclick="filterGallery('topografia', this)">📐 Topografía</button>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+
+        <!-- DEPORTIVOS -->
+        <div class="gallery-item" data-cat="deportivo" onclick="openLightbox('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&q=80','VIDENA — Lima, Perú','Siembra de grama híbrida VERTIX y arena USGA para la Federación Peruana de Fútbol. 2026.')">
+          <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&q=70&auto=format&fit=crop" alt="VIDENA Federación Peruana de Fútbol Lima" loading="lazy" />
+          <div class="gallery-overlay">VIDENA — Lima, Perú</div>
+        </div>
+
+        <div class="gallery-item" data-cat="deportivo" onclick="openLightbox('https://images.unsplash.com/photo-1459865264687-595d652de67e?w=900&q=80','Estadio Humberto Micheletti','Drenaje francés, riego automatizado, carpeta híbrida y Bermuda Ibiza. El Progreso, Yoro.')">
+          <img src="https://images.unsplash.com/photo-1459865264687-595d652de67e?w=500&q=70&auto=format&fit=crop" alt="Estadio Humberto Micheletti El Progreso Yoro" loading="lazy" />
+          <div class="gallery-overlay">Estadio Humberto Micheletti</div>
+        </div>
+
+        <div class="gallery-item" data-cat="deportivo" onclick="openLightbox('https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=900&q=80','Estadio Juan Ramón Breve Vargas','Grama híbrida 95% natural, drenajes pluviales y sistema de riego. Juticalpa, Olancho.')">
+          <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&q=70&auto=format&fit=crop" alt="Estadio Juan Ramón Breve Vargas Juticalpa" loading="lazy" />
+          <div class="gallery-overlay">Estadio Juan Ramón Breve</div>
+        </div>
+
+        <div class="gallery-item" data-cat="deportivo" onclick="openLightbox('https://images.unsplash.com/photo-1508098682722-e99c643e7f0b?w=900&q=80','Estadio Rubén Guifarro','Nivelación de arena y siembra de Bermuda Ibiza. Primera División de Honduras. Catacamas.')">
+          <img src="https://images.unsplash.com/photo-1508098682722-e99c643e7f0b?w=500&q=70&auto=format&fit=crop" alt="Estadio Rubén Guifarro Catacamas Primera División" loading="lazy" />
+          <div class="gallery-overlay">Estadio Rubén Guifarro</div>
+        </div>
+
+        <div class="gallery-item" data-cat="deportivo" onclick="openLightbox('https://images.unsplash.com/photo-1551958219-acbc630e2914?w=900&q=80','Estadio Fausto Flores Lagos','Nivelación, siembra Bermuda Ibiza, marcajes reglamentarios y sistema de riego. Choluteca.')">
+          <img src="https://images.unsplash.com/photo-1551958219-acbc630e2914?w=500&q=70&auto=format&fit=crop" alt="Estadio Fausto Flores Lagos Choluteca" loading="lazy" />
+          <div class="gallery-overlay">Estadio Fausto Flores</div>
+        </div>
+
+        <div class="gallery-item" data-cat="deportivo" onclick="openLightbox('https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=900&q=80','Estadio Roberto Darío Cuevas','Gestión integral, siembra y mantenimiento técnico. Mangulile, Olancho.')">
+          <img src="https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=500&q=70&auto=format&fit=crop" alt="Estadio Roberto Darío Cuevas Mangulile Olancho" loading="lazy" />
+          <div class="gallery-overlay">Estadio Roberto Darío Cuevas</div>
+        </div>
+
+        <!-- OBRA CIVIL -->
+        <div class="gallery-item" data-cat="civil" onclick="openLightbox('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80','Remodelación Estadio Nacional','Control administrativo, maquinaria pesada y estimaciones. Tegucigalpa, 2024.')">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=70&auto=format&fit=crop" alt="Remodelación Estadio Nacional Tegucigalpa" loading="lazy" />
+          <div class="gallery-overlay">Remodelación Estadio Nacional</div>
+        </div>
+
+        <div class="gallery-item" data-cat="civil" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80','Residencial CIC Condominios','Supervisión de construcción de viviendas y fachadas de aluminio. Tatumbla, 2022.')">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=70&auto=format&fit=crop" alt="Residencial CIC Condominios Tatumbla" loading="lazy" />
+          <div class="gallery-overlay">Residencial CIC Condominios</div>
+        </div>
+
+        <div class="gallery-item" data-cat="civil" onclick="openLightbox('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80','Remodelación Interior','Renovación de cocina y baños con acabados de primera. Tegucigalpa, 2024.')">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=70&auto=format&fit=crop" alt="Remodelación interior cocina y baños" loading="lazy" />
+          <div class="gallery-overlay">Remodelación Interior</div>
+        </div>
+
+        <!-- TOPOGRAFÍA -->
+        <div class="gallery-item" data-cat="topografia" onclick="openLightbox('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=900&q=80','Levantamiento Topográfico','Estación total, digitalización en Civil 3D. Francisco Morazán.')">
+          <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=500&q=70&auto=format&fit=crop" alt="Levantamiento topográfico con estación total" loading="lazy" />
+          <div class="gallery-overlay">Levantamiento Topográfico</div>
+        </div>
+
+        <div class="gallery-item" data-cat="topografia" onclick="openLightbox('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900&q=80','Cortes y Rellenos de Material','Coordinación de maquinaria para movimiento de tierras. Olancho.')">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&q=70&auto=format&fit=crop" alt="Cortes y rellenos de material topografía" loading="lazy" />
+          <div class="gallery-overlay">Cortes y Rellenos — Olancho</div>
+        </div>
+
+        <div class="gallery-item" data-cat="topografia" onclick="openLightbox('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80','Nivelación Láser de Arena USGA','Tecnología de nivelación láser para superficies deportivas profesionales. Lima, Perú.')">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=70&auto=format&fit=crop" alt="Nivelación láser de arena USGA campo deportivo" loading="lazy" />
+          <div class="gallery-overlay">Nivelación Láser — USGA</div>
+        </div>
+
+      </div>TYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galería de proyectos CIMRO - Construcciones, remodelaciones y obras realizadas en Honduras." />
+  <title>CIMRO | Galería</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      background: var(--dark2);
+      border-radius: 10px;
+      overflow: hidden;
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+    }
+    .lightbox-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .lightbox-info {
+      padding: 1.25rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    .lightbox-title { color: var(--gold); font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.4rem; }
+    .lightbox-desc { color: #ccc; font-size: 0.88rem; }
+    .lightbox-close {
+      position: absolute;
+      top: 0.75rem; right: 1rem;
+      font-size: 1.5rem; cursor: pointer; color: #fff;
+      background: rgba(0,0,0,0.5); border: none;
+      border-radius: 50%; width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+    }
+    .lightbox-close:hover { background: var(--gold); color: var(--dark); }
+
+    .filter-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem; }
+    .filter-btn {
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--gold);
+      color: var(--dark);
+    }
+  </style>
+</head>
+<body>
+
+  <header></header>
+
+  <div class="page-banner">
+    <img class="banner-bg" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1400&q=70&auto=format&fit=crop" alt="Edificio moderno terminado" loading="eager" />
+    <h1>Galería de Proyectos</h1>
+    <p>Evidencia de nuestro trabajo y compromiso con la calidad</p>
+  </div>
+
+  <section>
+    <div class="container">
+
+      <div class="filter-btns">
+        <button class="filter-btn active" onclick="filterGallery('all', this)">Todos</button>
+        <button class="filter-btn" onclick="filterGallery('deportivo', this)">⚽ Canchas Deportivas</button>
+        <button class="filter-btn" onclick="filterGallery('civil', this)">🏗️ Obra Civil</button>
+        <button class="filter-btn" onclick="filterGallery('topografia', this)">📐 Topografía</button>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+
+        <div class="gallery-item" data-cat="residencial" onclick="openLightbox('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=900&q=80','Casa Familiar Tatumbla','Construcción de 120 m², 3 habitaciones. Terminada en 2024.')">
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500&q=70&auto=format&fit=crop" alt="Casa familiar moderna construida por CIMRO en Tatumbla" loading="lazy" />
+          <div class="gallery-overlay">Casa Familiar — Tatumbla</div>
+        </div>
+
+        <div class="gallery-item" data-cat="comercial" onclick="openLightbox('https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80','Local Comercial','Remodelación completa de local 80 m². Tegucigalpa 2023.')">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=70&auto=format&fit=crop" alt="Local comercial remodelado por CIMRO en Tegucigalpa" loading="lazy" />
+          <div class="gallery-overlay">Local Comercial — Tegucigalpa</div>
+        </div>
+
+        <div class="gallery-item" data-cat="topografia" onclick="openLightbox('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=900&q=80','Levantamiento Topográfico','Terreno 5000 m². Aldea Cofradía, 2024.')">
+          <img src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=500&q=70&auto=format&fit=crop" alt="Topógrafo realizando levantamiento de terreno en Cofradía" loading="lazy" />
+          <div class="gallery-overlay">Topografía — Cofradía</div>
+        </div>
+
+        <div class="gallery-item" data-cat="residencial" onclick="openLightbox('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80','Residencial Cofradía','Conjunto de 20 viviendas. En proceso 2025.')">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=70&auto=format&fit=crop" alt="Conjunto residencial en construcción por CIMRO" loading="lazy" />
+          <div class="gallery-overlay">Residencial Cofradía</div>
+        </div>
+
+        <div class="gallery-item" data-cat="comercial" onclick="openLightbox('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80','Escuela Municipal','Supervisión y remodelación de aulas. Aldea Cofradía 2022.')">
+          <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&q=70&auto=format&fit=crop" alt="Escuela municipal remodelada por CIMRO" loading="lazy" />
+          <div class="gallery-overlay">Escuela Municipal</div>
+        </div>
+
+        <div class="gallery-item" data-cat="topografia" onclick="openLightbox('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80','Obra Civil','Estructura de concreto armado. Francisco Morazán, 2023.')">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=70&auto=format&fit=crop" alt="Estructura de concreto armado en obra civil" loading="lazy" />
+          <div class="gallery-overlay">Estructura Civil — F.M.</div>
+        </div>
+
+        <div class="gallery-item" data-cat="residencial" onclick="openLightbox('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80','Remodelación Interior','Cocina y baños residencia en Tatumbla. 2024.')">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=70&auto=format&fit=crop" alt="Interior renovado con acabados modernos" loading="lazy" />
+          <div class="gallery-overlay">Remodelación Interior</div>
+        </div>
+
+        <div class="gallery-item" data-cat="comercial" onclick="openLightbox('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80','Obra en Proceso','Supervisión de construcción comercial. 2023.')">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=70&auto=format&fit=crop" alt="Obra comercial en proceso de construcción" loading="lazy" />
+          <div class="gallery-overlay">Obra Comercial — Proceso</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img class="lightbox-img" id="lb-img" src="" alt="" />
+      <div class="lightbox-info">
+        <div class="lightbox-title" id="lb-title"></div>
+        <div class="lightbox-desc" id="lb-desc"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer></footer>
+
+  <script src="components.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    function openLightbox(imgSrc, title, desc) {
+      document.getElementById('lb-img').src = imgSrc;
+      document.getElementById('lb-img').alt = title;
+      document.getElementById('lb-title').textContent = title;
+      document.getElementById('lb-desc').textContent = desc;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox(e) {
+      if (!e || e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
+        document.getElementById('lightbox').classList.remove('active');
+      }
+    }
+
+    function filterGallery(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.gallery-item').forEach(function(item){
+        item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

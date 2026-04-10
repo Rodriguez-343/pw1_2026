@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contáctenos - CIMRO Constructora e Inmobiliaria Rodríguez. Estamos listos para atender su proyecto." />
+  <title>CIMRO | Contáctenos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <header></header>
+
+  <div class="page-banner">
+    <img class="banner-bg" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=70&auto=format&fit=crop" alt="Obra de construcción al atardecer" loading="eager" />
+    <h1>Contáctenos</h1>
+    <p>Estamos disponibles para atender su consulta o proyecto</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="two-col">
+
+        <!-- FORMULARIO -->
+        <div>
+          <h2 class="section-title" style="text-align:left;">Envíenos un Mensaje</h2>
+          <div class="gold-line" style="margin-left:0;"></div>
+
+          <form id="form-contacto" novalidate>
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Su nombre" required />
+              <span class="error-msg" id="nombre-error">Este campo es requerido.</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required />
+              <span class="error-msg" id="email-error">Ingrese un correo válido.</span>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+504 0000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="servicio">Servicio de interés</label>
+              <select id="servicio" name="servicio" required>
+                <option value="">-- Seleccione un servicio --</option>
+                <option value="ingenieria">Ingeniería Civil</option>
+                <option value="topografia">Topografía</option>
+                <option value="remodelacion">Remodelación</option>
+                <option value="supervision">Supervisión de Proyectos</option>
+                <option value="inmobiliaria">Proyectos Inmobiliarios</option>
+              </select>
+              <span class="error-msg" id="servicio-error">Seleccione una opción.</span>
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Describa brevemente su proyecto o consulta..." required></textarea>
+              <span class="error-msg" id="mensaje-error">Este campo es requerido.</span>
+            </div>
+            <button type="submit" class="btn btn-gold">Enviar Mensaje</button>
+            <div class="success-msg">✅ Mensaje enviado correctamente. Le responderemos pronto.</div>
+          </form>
+        </div>
+
+        <!-- INFORMACIÓN -->
+        <div>
+          <h2 class="section-title" style="text-align:left;">Información de Contacto</h2>
+          <div class="gold-line" style="margin-left:0;"></div>
+
+          <div class="info-box">
+            <h3>📞 Teléfonos</h3>
+            <p>+504 8952-8094<br>3141-0110</p>
+          </div>
+
+          <div class="info-box">
+            <h3>✉️ Correo Electrónico</h3>
+            <p>Jbrodri07@gmail.com</p>
+          </div>
+
+          <div class="info-box">
+            <h3>📍 Ubicación</h3>
+            <p>Municipio Tatumbla, aldea Cofradía<br>300 mts frente a pulpería Dayan<br>Francisco Morazán, Honduras</p>
+          </div>
+
+          <div class="info-box">
+            <h3>🕐 Horario de Atención</h3>
+            <p>Lunes a Viernes: 8:00 am – 5:00 pm<br>Sábados: 8:00 am – 12:00 pm</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer></footer>
+
+  <script src="components.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      validateForm('form-contacto');
+    });
+  </script>
+</body>
+</html>

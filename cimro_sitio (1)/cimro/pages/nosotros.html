@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Acerca de CIMRO - Liderada por el Ing. Jaffet Rodríguez, con experiencia en construcción civil, canchas deportivas e infraestructura en Honduras y Perú." />
+  <title>CIMRO | Acerca de Nosotros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .exp-timeline { position:relative; padding-left:2.2rem; }
+    .exp-timeline::before { content:''; position:absolute; left:.55rem; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--gold),#e0d8c8); }
+    .exp-item { position:relative; margin-bottom:1.75rem; }
+    .exp-dot { position:absolute; left:-1.9rem; top:.25rem; width:16px; height:16px; border-radius:50%; background:var(--gold); border:3px solid #fff; box-shadow:0 0 0 2px var(--gold); }
+    .exp-item .exp-head { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:.3rem; }
+    .exp-item h4 { font-family:var(--font-heading); font-size:1rem; color:var(--dark); }
+    .exp-item .exp-date { font-size:.78rem; color:var(--gold); font-weight:700; white-space:nowrap; }
+    .exp-item .exp-company { font-size:.82rem; color:var(--gold); margin-bottom:.4rem; }
+    .exp-item p { font-size:.87rem; color:var(--gray); line-height:1.6; }
+
+    .skill-bars { margin-top:1rem; }
+    .skill-row { margin-bottom:.85rem; }
+    .skill-label { display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.3rem; color:var(--dark); font-weight:700; }
+    .skill-bar-bg { height:6px; background:#e8e3d8; border-radius:3px; overflow:hidden; }
+    .skill-bar-fill { height:100%; background:linear-gradient(90deg,var(--gold),var(--gold-light)); border-radius:3px; }
+
+    .cert-chips { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; }
+    .cert-chip { background:var(--dark); color:var(--gold); font-size:.78rem; font-weight:700; padding:.35rem .85rem; border-radius:20px; }
+
+    .profile-card { background:var(--white); border-radius:10px; box-shadow:0 4px 24px rgba(0,0,0,.10); overflow:hidden; }
+    .profile-card-top { background:linear-gradient(135deg,var(--dark2),#2a1f00); padding:2.5rem 2rem; text-align:center; }
+    .profile-avatar { width:110px; height:110px; border-radius:50%; border:4px solid var(--gold); margin:0 auto 1rem; overflow:hidden; }
+    .profile-avatar img { width:100%; height:100%; object-fit:cover; }
+    .profile-card-top h3 { font-family:var(--font-heading); color:var(--white); font-size:1.3rem; margin-bottom:.2rem; }
+    .profile-card-top p { color:var(--gold); font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; }
+    .profile-card-body { padding:1.5rem; }
+    .profile-info-row { display:flex; gap:.75rem; align-items:flex-start; font-size:.87rem; color:var(--gray); margin-bottom:.65rem; }
+  </style>
+</head>
+<body>
+  <header></header>
+
+  <div class="page-banner">
+    <img class="banner-bg" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1400&q=70&auto=format&fit=crop" alt="Equipo de CIMRO en obra" loading="eager" />
+    <h1>Acerca de Nosotros</h1>
+    <p>Ingeniería civil, construcción deportiva e infraestructura con respaldo internacional</p>
+  </div>
+
+  <!-- HISTORIA -->
+  <section>
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2 class="section-title" style="text-align:left;">Nuestra Historia</h2>
+          <div class="gold-line" style="margin-left:0;"></div>
+          <p style="color:var(--gray);margin-bottom:1rem;">CIMRO nació en el municipio de Tatumbla, Francisco Morazán, de la mano del Ing. Jaffet Alexander Barahona Rodríguez — Ingeniero Civil egresado de la Universidad Católica de Honduras en 2021.</p>
+          <p style="color:var(--gray);margin-bottom:1rem;">Con experiencia acumulada en proyectos de vivienda, remodelaciones de estadios nacionales y construcción de canchas deportivas profesionales, CIMRO amplió su alcance hasta proyectos internacionales en Lima, Perú, trabajando para la Federación Peruana de Fútbol en la VIDENA.</p>
+          <p style="color:var(--gray);">Hoy ofrecemos ingeniería civil, topografía, planificación, estimaciones, manejo de personal y una especialidad única en construcción y mantenimiento de canchas bajo estándares FIFA y CONMEBOL.</p>
+        </div>
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1590725121839-892b458a74fe?w=800&q=75&auto=format&fit=crop" alt="Ingeniero revisando planos en campo" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN Y VISIÓN -->
+  <section style="background:var(--white);">
+    <div class="container">
+      <h2 class="section-title">Misión y Visión</h2>
+      <div class="gold-line"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div class="info-box">
+          <h3>🎯 Nuestra Misión</h3>
+          <p>Ejecutar proyectos de ingeniería civil e infraestructura deportiva con altos estándares técnicos, cumplimiento de plazos y honestidad — desde Tatumbla hasta cualquier punto de Honduras y la región.</p>
+        </div>
+        <div class="info-box">
+          <h3>🔭 Nuestra Visión</h3>
+          <p>Ser la empresa de referencia en Honduras para infraestructura civil y deportiva, reconocida por su capacidad técnica certificada y su experiencia en proyectos de talla nacional e internacional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTOR -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Nuestro Director</h2>
+      <div class="gold-line"></div>
+      <div class="two-col" style="align-items:start;gap:3rem;">
+
+        <div class="profile-card">
+          <div class="profile-card-top">
+            <div class="profile-avatar">
+              <img src="data:image/png;base64,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" alt="Ing. Jaffet Alexander Barahona Rodríguez — Director CIMRO" loading="lazy" />
+            </div>
+            <h3>Ing. Jaffet A. Barahona Rodríguez</h3>
+            <p>Director General · Ingeniero Civil</p>
+          </div>
+          <div class="profile-card-body">
+            <div class="profile-info-row">📍 <span>Tatumbla, Francisco Morazán</span></div>
+            <div class="profile-info-row">🎓 <span>Ing. Civil — UNICAH, 2021</span></div>
+            <div class="profile-info-row">📞 <span>+504 8952-8094</span></div>
+            <div class="profile-info-row">✉️ <span>Jbrodri07@gmail.com</span></div>
+            <div class="profile-info-row">🌎 <span>Español · Inglés</span></div>
+            <div class="profile-info-row">🚗 <span>Licencia liviana · Vehículo propio</span></div>
+
+            <div style="margin-top:1.25rem;">
+              <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);font-weight:700;margin-bottom:.75rem;">Herramientas técnicas</p>
+              <div class="skill-bars">
+                <div class="skill-row">
+                  <div class="skill-label"><span>MS Office</span><span>95%</span></div>
+                  <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-label"><span>AutoCAD</span><span>90%</span></div>
+                  <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-label"><span>Topografía de campo</span><span>85%</span></div>
+                  <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+                </div>
+                <div class="skill-row">
+                  <div class="skill-label"><span>Civil 3D</span><span>80%</span></div>
+                  <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:1.25rem;">
+              <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);font-weight:700;margin-bottom:.75rem;">Aptitudes</p>
+              <div class="cert-chips">
+                <span class="cert-chip">Liderazgo</span>
+                <span class="cert-chip">Trabajo en equipo</span>
+                <span class="cert-chip">Resolución de problemas</span>
+                <span class="cert-chip">Toma de decisiones</span>
+                <span class="cert-chip">Organización</span>
+                <span class="cert-chip">Adaptabilidad</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div>
+          <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:700;margin-bottom:1.5rem;">Trayectoria profesional</p>
+          <div class="exp-timeline">
+
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <div class="exp-head">
+                <h4>Coordinador — VIDENA / Federación Peruana de Fútbol</h4>
+                <span class="exp-date">Feb 2026 – Presente</span>
+              </div>
+              <p class="exp-company">TMS · Lima, Perú</p>
+              <p>Nivelación láser de arena USGA (25 cm), instalación de riego automatizado, siembra de grama híbrida VERTIX, Bermuda Ibiza y Raigrás en campos de la Federación Peruana.</p>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <div class="exp-head">
+                <h4>Ing. Residente — Estadio Humberto Micheletti</h4>
+                <span class="exp-date">Ago 2024 – Feb 2026</span>
+              </div>
+              <p class="exp-company">TMS · El Progreso, Yoro</p>
+              <p>Topografía, cortes y rellenos, drenaje francés, riego automatizado, carpeta híbrida y siembra de Bermuda Ibiza para cancha profesional.</p>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <div class="exp-head">
+                <h4>Ing. Residente — Estadio Juan Ramón Breve Vargas</h4>
+                <span class="exp-date">Nov 2024 – Sep 2025</span>
+              </div>
+              <p class="exp-company">COINFA – TMS · Juticalpa, Olancho</p>
+              <p>Remodelación de estadio: drenajes pluviales, sistema de riego, colocación de grama híbrida 95% natural y mantenimiento por 3 meses post-obra.</p>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <div class="exp-head">
+                <h4>Ing. Asistente — Remodelación Estadio Nacional</h4>
+                <span class="exp-date">Ene 2024 – Nov 2024</span>
+              </div>
+              <p class="exp-company">COINFA S de R.L. · Tegucigalpa</p>
+              <p>Control administrativo, planillas, estimaciones mensuales, cuantificación y coordinación de maquinaria pesada (grúa, retroexcavadora, excavadora).</p>
+            </div>
+
+            <div class="exp-item">
+              <div class="exp-dot"></div>
+              <div class="exp-head">
+                <h4>Ing. Residente — Construcción de Viviendas</h4>
+                <span class="exp-date">Ene 2021 – May 2022</span>
+              </div>
+              <p class="exp-company">CIC Condominios · Tatumbla</p>
+              <p>Supervisión de construcción de viviendas, control de materiales e instalación de fachadas de aluminio, ventanas y puertas.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICACIONES -->
+  <section style="background:var(--white);">
+    <div class="container">
+      <h2 class="section-title">Certificaciones del Director</h2>
+      <div class="gold-line"></div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=70&auto=format&fit=crop" alt="Certificación CONMEBOL mantenimiento de césped deportivo" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3>CONMEBOL — Preparación y Mantenimiento de Césped</h3>
+            <p>Certificación internacional en canchas deportivas, sistemas de riego, drenaje y control de plagas. <em>Dic 2025</em></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=70&auto=format&fit=crop" alt="Certificación Autodesk Civil 3D CITEC topografía" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3>Autodesk Civil 3D — CITEC</h3>
+            <p>Levantamientos topográficos, cortes, rellenos y planos de ingeniería civil. <em>Nov 2024</em></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=70&auto=format&fit=crop" alt="Certificación ISO gestión de calidad total" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <h3>Gestión de Calidad Total — Normas ISO</h3>
+            <p>Certificado por la Universidad Católica de Honduras. <em>Feb 2020</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Nuestros Valores</h2>
+      <div class="gold-line"></div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=70&auto=format&fit=crop" alt="Calidad técnica en construcción" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Calidad Técnica</h3>
+            <p>Proyectos ejecutados bajo normas ASTM, estándares FIFA/CONMEBOL y especificaciones hondureñas. Sin atajos.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=70&auto=format&fit=crop" alt="Compromiso y confianza profesional" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Compromiso</h3>
+            <p>Cumplimos cronogramas. Nuestra experiencia en proyectos nacionales e internacionales lo respalda.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=70&auto=format&fit=crop" alt="Liderazgo directo en obra" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Liderazgo en Campo</h3>
+            <p>El Ing. Jaffet dirige directamente cada proyecto. El responsable técnico siempre está en obra.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-img-section">
+    <img class="cta-bg" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=70&auto=format&fit=crop" alt="Obra CIMRO" loading="lazy" />
+    <h2 style="font-family:var(--font-heading);font-size:2rem;color:var(--gold);margin-bottom:1rem;">Experiencia comprobada en Honduras y el mundo</h2>
+    <p style="color:#ddd;max-width:520px;margin:0 auto 2rem;">Cuéntenos su proyecto y le atendemos directamente.</p>
+    <a href="cotizacion.html" class="btn btn-gold">Solicitar Cotización</a>
+  </div>
+
+  <footer></footer>
+  <script src="components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
