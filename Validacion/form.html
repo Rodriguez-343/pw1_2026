@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="diseño.css" />
+</head>
+<body>
+  <div class="background-shapes">
+    <span class="shape shape-1"></span>
+    <span class="shape shape-2"></span>
+    <span class="shape shape-3"></span>
+  </div>
+
+  <main class="login-wrapper">
+    <section class="login-card">
+      <div class="login-header">
+        <div class="logo-circle">✦</div>
+        <h1>Bienvenido</h1>
+        <p>Ingresa tu correo y clave para continuar</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="input-group">
+          <label for="correo">Correo</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="ejemplo@correo.com"
+          />
+          <small class="error-message" id="errorCorreo"></small>
+        </div>
+
+        <div class="input-group">
+          <label for="clave">Clave</label>
+          <input
+            type="password"
+            id="clave"
+            name="clave"
+            placeholder="Mínimo 6 caracteres"
+          />
+          <small class="error-message" id="errorClave"></small>
+        </div>
+
+        <button type="submit" class="btn-login">Iniciar sesión</button>
+
+        <p class="success-message" id="successMessage"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="validador.js"></script>
+</body>
+</html>

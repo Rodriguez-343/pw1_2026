@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plan de Estudios</title>
+  <link rel="stylesheet" href="plan.css" />
+</head>
+<body>
+  <div class="header">
+    <h1 id="titulo"></h1>
+    <p class="subtitle">Haz clic en una materia para marcarla como aprobada</p>
+    <div class="legend">
+      <span class="leg locked">🔒 Bloqueada</span>
+      <span class="leg available">Disponible</span>
+      <span class="leg approved">✓ Aprobada</span>
+      <span class="leg flash">⭐ Recién desbloqueada</span>
+    </div>
+    <div class="progress-text" id="progress-text"></div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+  </div>
+
+  <div class="plan" id="plan"></div>
+  <div class="tooltip" id="tooltip"></div>
+
+  <script src="plan.js"></script>
+</body>
+</html>
